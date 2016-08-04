@@ -1,3 +1,10 @@
-
+body {
+  font-family: helvetica; }
+  body .results-holder .results-list {
+    width: 70%; }
+    body .results-holder .results-list .single-result-container {
+      width: 25%; }
+      body .results-holder .results-list .single-result-container .single-result-img {
+        width: 100%; }
 
 /*# sourceMappingURL=main.css.map */
