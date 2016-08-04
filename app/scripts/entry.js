@@ -4,18 +4,7 @@ import ReactDOM from 'react-dom';
 import Nav from './components/Nav';
 import Search from './components/Search';
 import ResultsView from './components/SearchResult';
-
-const App = React.createClass({
-  render: function () {
-    return (
-      <div className="main-content">
-      <Nav />
-      {this.props.children}
-      </div>
-    )
-  }
-
-})
+import App from './components/App';
 
 const router = (
   <Router history={hashHistory}>

@@ -1,0 +1,17 @@
+body {
+    font-family: helvetica;
+    .results-holder {
+        // width: 70%;
+        .results-list {
+          width: 70%;
+            .single-result-container {
+              width: 25%;
+                .single-result-img {
+                  width: 100%;
+                }
+                .single-result-name {
+                }
+            }
+        }
+    }
+}

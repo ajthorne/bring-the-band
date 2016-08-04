@@ -1,5 +1,6 @@
 import React from 'react';
 import store from '../store';
+import SingleResult from './SingleResult';
 
 const ResultsView = React.createClass({
   getInitialState: function () {
@@ -15,7 +16,7 @@ const ResultsView = React.createClass({
     })
   },
   render: function () {
-    console.log(store.searchCollection);
+    // console.log(store.searchCollection);
     let bands = store.searchCollection.map((band, i, arr) => {
       let bandName = band.get('name');
       // console.log(bandName);
@@ -28,14 +29,14 @@ const ResultsView = React.createClass({
       } else {
         bandImg = 'http://placekitten.com/g/200/200'
       }
+      // console.log(bandImg);
 
-      console.log(bandImg);
-      return <li key={i} id={bandId} name={bandName} imgUrl={bandImg}/>
-      //imgUrl is giving a warning. check for fix later
+      return <SingleResult key={i} id={bandId} name={bandName} imgUrl={bandImg}/>
     })
     return (
-      <div>
-        <ul>
+      <div className="results-holder">
+        <h2>Your Results</h2>
+        <ul className="results-list">
           {bands}
         </ul>
       </div>
