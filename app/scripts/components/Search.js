@@ -21,10 +21,17 @@ const Search = React.createClass({
     );
   },
   render: function () {
+    // console.log(this.props.navsearch);
+    let searchClass;
+    if (this.props.navsearch === true) {
+      searchClass = "nav-search"
+    } else {
+      searchClass = "search-box"
+    }
     return (
-      <form className="search-box" onSubmit={this.searchHandler}>
-        <input type="text" placeholder="Search" ref="name"/>
-        <input type="submit" value="Search"/>
+      <form className={searchClass} onSubmit={this.searchHandler}>
+        <input className="search-input" type="text" placeholder="Search" ref="name"/>
+        <input className="search-btn" type="submit" value="Search"/>
       </form>
     )
   }

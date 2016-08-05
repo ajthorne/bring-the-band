@@ -1,8 +1,7 @@
 import React from 'react';
 import store from '../store';
-import { hashHistory } from 'react-router';
 
-const Login = React.createClass({
+const SignUp = React.createClass({
   getInitialState: function() {
   return {session: store.session.toJSON()}
 },
@@ -21,13 +20,14 @@ componentWillUnmount: function() {
 
 submitHandler: function (evt) {
   evt.preventDefault();
-  console.log('You logged in!');
+  console.log('You signed up!');
   let data = {
+    name: this.refs.name.value,
     username: this.refs.username.value,
     password: this.refs.password.value
   }
   // console.log(data);
-  store.session.login(data)
+  store.session.signup(data)
   //define login function on session model to store data to server
   hashHistory.push('/search');
 },
@@ -35,12 +35,13 @@ submitHandler: function (evt) {
 render: function () {
   return (
     <form onSubmit={this.submitHandler}>
+      <input type="text" placeholder="Enter your name" ref="name"/>
       <input type="text" placeholder="Enter a username" ref="username"/>
       <input type="password" placeholder="Enter a password" ref="password"/>
-      <input type="submit" value="Login"/>
+      <input type="submit" value="Sign Up"/>
     </form>
   )
 }
 })
 
-export default Login;
+export default SignUp;
