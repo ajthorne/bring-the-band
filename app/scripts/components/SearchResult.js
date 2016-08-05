@@ -15,6 +15,7 @@ const ResultsView = React.createClass({
       });
     })
   },
+
   render: function () {
     // console.log(store.searchCollection);
     let bands = store.searchCollection.map((band, i, arr) => {
@@ -33,6 +34,7 @@ const ResultsView = React.createClass({
 
       return <SingleResult key={i} id={bandId} name={bandName} imgUrl={bandImg}/>
     })
+    // console.log(this.props);
     return (
       <div className="results-holder">
         <h2>Your Results</h2>

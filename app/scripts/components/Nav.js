@@ -15,7 +15,7 @@ const Nav = React.createClass({
     store.session.on('update change', this.updateState);
   },
   render: function () {
-    console.log(store.session.get('username'));
+    // console.log(store.session.get('username'));
     //props passed from parent -- location={this.props.location.pathname}
     // console.log(this.props.location);
 
@@ -43,8 +43,8 @@ const Nav = React.createClass({
         <nav>
           {searchView}
           <img className="spotify-logo" src="../../assets/images/Spotify_Icon_CMYK_Green.png"/>
-          <Link to="/votes">Votes</Link>
           <Link to="/logout">Logout</Link>
+          <Link to="/votes">Votes</Link>
         </nav>
       )
     }

@@ -6,7 +6,7 @@ const Search = React.createClass({
   searchHandler: function (e) {
     e.preventDefault();
     let band = this.refs.name.value;
-    console.log(band);
+    console.log('Your search:', band);
     store.searchCollection.fetch(
       {
         data: {

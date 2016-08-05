@@ -8,9 +8,6 @@ let store = {
   bandsCollection: new Bands(),
   //access using store.bandsCollection
 
-  band: new Band(),
-  //access using store.band
-
   session: new Session(),
   //access using store.session
 

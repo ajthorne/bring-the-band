@@ -18,7 +18,7 @@ const Session = Backbone.Model.extend({
       contentType: 'application/json'
     })
       .then((response) => {
-        console.log(response);
+        // console.log(response);
         this.set({
           username: response.username, authtoken: response._kmd.authtoken, id: response._id
         });
