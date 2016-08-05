@@ -1,5 +1,21 @@
 body {
   font-family: helvetica; }
+  body nav .spotify-logo {
+    width: 3%; }
+  body nav a {
+    float: right; }
+  body nav .nav-search {
+    display: inline-block; }
+  body .search-box {
+    display: block;
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 25%; }
+    body .search-box .search-input {
+      width: 100%; }
+    body .search-box .search-btn {
+      width: 100%;
+      border: 0; }
   body .results-holder .results-list {
     width: 70%; }
     body .results-holder .results-list .single-result-container {
