@@ -28,7 +28,7 @@ const SingleResult = React.createClass({
               console.log(band)
               {
                 votes: band.save('votes', band.get('votes').concat(store.session.get('username')));
-                // voteCount: store.bandsCollection.voteCount()
+                voteCount: band.save('voteCount', band.voteCount())
                }
              }
       })
@@ -36,7 +36,7 @@ const SingleResult = React.createClass({
         let votes = model.get('votes');
         console.log(votes);
         model.save('votes', votes.concat(store.session.get('username')))
-        // voteCount: store.bandsCollection.voteCount()
+        model.save('voteCount', model.get('voteCount') + 1)
       }
     }
   });
