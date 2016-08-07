@@ -16,34 +16,32 @@ const SingleResult = React.createClass({
       // console.log(store.bandsCollection);
     let model = store.bandsCollection.where({id: id})[0];
     // console.log(model);
-
-    let votes = model.get('votes')
-    console.log(votes);
-    }});
-
-    // let votes = model.get('votes')
     // console.log(votes);
 
-    //does band already exist in my collection store.bandsCollection.get(id)
-    //if not create a new band
-    //get specific band id
+    if (!model) {
+      store.bandsCollection.create({
+        id: id,
+        name: name,
+      },
+      {
+          success: (band) => {
+              console.log(band)
+              {
+                votes: band.save('votes', band.get('votes').concat(store.session.get('username')));
+                // voteCount: store.bandsCollection.voteCount()
+               }
+             }
+      })
+      } else {
+        let votes = model.get('votes');
+        console.log(votes);
+        model.save('votes', votes.concat(store.session.get('username')))
+        // voteCount: store.bandsCollection.voteCount()
+      }
+    }
+  });
 
-    //vote for band with votes and votecount function
-
-    // store.bandsCollection.create({
-    //   id: id,
-    //   name: name,
-    //   // votes: votes.push(store.session.get('username')),
-    //   // voteCount: store.band.voteCount()
-    // }, {
-    //   success: function (response) {
-    //   console.log(response);
-    //   // console.log(store.band.get('voteCount'));
-    // }
-    // })
-
-    // console.log('username:', store.session.get('username'));
-    // console.log('votes:', store.bandsCollection.get('votes'));
+    console.log('username:', store.session.get('username'));
     //I need to push() the data to the array
 
   },
