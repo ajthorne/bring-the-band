@@ -16,6 +16,13 @@ const ResultsView = React.createClass({
     })
   },
 
+  componentWillUnMount: function () {
+    store.searchCollection.off('update change', () => {
+      this.setState({searchCollection: store.searchCollection.toJSON()
+      });
+    })
+  },
+
   render: function () {
     // console.log(store.searchCollection);
     let bands = store.searchCollection.map((band, i, arr) => {

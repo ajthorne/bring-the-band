@@ -10,6 +10,7 @@ import Login from './components/Login';
 import SignUp from './components/SignUp';
 import $ from 'jquery';
 import settings from './settings';
+import VotesView from './components/Vote';
 
 
 $(document).ajaxSend(function(evt, xhrAjax, jqueryAjax) {
@@ -32,6 +33,7 @@ const router = (
       <Route path="/signup" component={SignUp}/>
       <Route path="/search" component={Search}/>
       <Route path="/searchresults" component={ResultsView}/>
+      <Route path="/votes" component={VotesView}/>
     </Route>
   </Router>
 )

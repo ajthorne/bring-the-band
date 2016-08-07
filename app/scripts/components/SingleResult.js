@@ -10,6 +10,8 @@ const SingleResult = React.createClass({
     console.log('You voted for me. You\'re so sweet!');
     let id = this.props.id
     let name = this.props.name
+    let imgUrl = this.props.imgUrl
+    // console.log(this.props);
 
     store.bandsCollection.fetch({success: () => {
       // console.log(id);
@@ -22,6 +24,7 @@ const SingleResult = React.createClass({
       store.bandsCollection.create({
         id: id,
         name: name,
+        imgUrl: imgUrl
       },
       {
           success: (band) => {
@@ -41,7 +44,7 @@ const SingleResult = React.createClass({
     }
   });
 
-    console.log('username:', store.session.get('username'));
+    // console.log('username:', store.session.get('username'));
     //I need to push() the data to the array
 
   },
