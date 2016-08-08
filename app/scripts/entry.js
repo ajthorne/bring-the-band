@@ -15,9 +15,9 @@ import VotesView from './components/Vote';
 
 $(document).ajaxSend(function(evt, xhrAjax, jqueryAjax) {
   if (jqueryAjax.url.indexOf('spotify') === -1) {
-  if (store.session.get('authtoken')) {
+  if (localStorage.authtoken) {
     //if authtoken exists
-    xhrAjax.setRequestHeader('Authorization', 'Kinvey ' + store.session.get('authtoken'));
+    xhrAjax.setRequestHeader('Authorization', 'Kinvey ' + localStorage.authtoken);
     //Authorization pulls authtoken for that user from response
   } else {
     xhrAjax.setRequestHeader('Authorization', 'Basic ' + settings.baseAuth);
@@ -26,9 +26,9 @@ $(document).ajaxSend(function(evt, xhrAjax, jqueryAjax) {
 }
 });
 
-// if (localStorage.authtoken) {
-//   store.session.retrieve();
-// }
+if (localStorage.authtoken) {
+  store.session.retrieve();
+}
 
 const router = (
   <Router history={hashHistory}>

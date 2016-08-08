@@ -8,17 +8,24 @@ import _ from 'underscore';
 
 const VotesView = React.createClass({
   getInitialState: function () {
+    console.log(store.bandsCollection);
     return {
       bandsCollection: store.bandsCollection.toJSON()
-    }
+        }
   },
   componentWillMount: function () {
-    store.bandsCollection.fetch();
+    store.bandsCollection.fetch({
+      success: function (response) {
+        // console.log(response.models);
+        // console.log(_.sortBy(response.models, 'name'));
+      }
+    });
     store.bandsCollection.on('update change', () => {
-      this.setState({bandsCollection: store.bandsCollection.toJSON()
+      this.setState({bandsCollection: store.bandsCollection.toJSON()});
+      // console.log(_.sortBy(this.state, 'voteCount'));
       });
-    })
-  },
+
+    },
   componentWillUnmount: function () {
     store.bandsCollection.off('update change', () => {
       this.setState({bandsCollection: store.bandsCollection.toJSON()
@@ -27,13 +34,19 @@ const VotesView = React.createClass({
   },
 render: function () {
   //setting up props to pass down to child
+  // console.log(store.bandsCollection);
+  let voteSort = _.sortBy(store.bandsCollection.models, function(band) {
+    // console.log(band);
+    return band.get('voteCount')
+  });
+
+  // console.log(voteSort.reverse());
 
   let bandsVotedFor = store.bandsCollection.map((vote, i, arr) => {
     // console.log(vote);
     let name = vote.get('name');
     let imgUrl = vote.get('imgUrl');
     let voteCount = vote.get('voteCount');
-    // console.log(_.sortBy(vote, 'voteCount'));
 
     return <SingleVote key={i} name={name} imgUrl={imgUrl} voteCount={voteCount}/>
 

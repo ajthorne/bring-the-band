@@ -45,17 +45,18 @@ const Session = Backbone.Model.extend({
         console.error('Your data wasn\'t passed through')
       })
   },
-  // retrieve: function () {
-  //   $.ajax({
-  //     url: `https://baas.kinvey.com/user/${settings.appId}/_me`,
-  //   })
-  //   .then((response) => {
-  //     // console.log(response);
-  //   })
-  //   .fail((error) => {
-  //     // console.log(error);
-  //   })
-  // },
+  retrieve: function () {
+    this.fetch({
+      url: `https://baas.kinvey.com/user/${settings.appId}/_me`,
+      success: () => {
+        console.log('you got your authtoken:', localStorage.getItem('authtoken'));
+        localStorage.getItem("authtoken")
+        },
+      error: function(e) {
+        console.log(e);
+      }
+    });
+  },
   logout: function () {
     $.ajax(null, {
       url: `https://baas.kinvey.com/user/${settings.appId}/_logout`,
