@@ -9,7 +9,7 @@ const SingleVote = React.createClass({
     return (
       <li className="single-vote-holder">
         <img className="single-vote-img" src={`${this.props.imgUrl}`}/>
-        <span className="single-vote-name">{this.props.name}</span>
+        <p className="single-vote-name">{this.props.name}</p>
         <p className="single-vote-count"><span>Total Votes: </span>{this.props.voteCount}</p>
       </li>
     )

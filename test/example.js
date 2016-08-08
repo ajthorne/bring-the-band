@@ -11,8 +11,10 @@
 // mapping over sorted bands in Vote
 
 //sort functions
-//sorting votecount collection
+//sorting votecount collection --working on
 
 // model functions
-// login, logout, signup on session
-// votecount function on band
+// login, logout, signup on session --started
+// how do you test an ajax request??
+
+// votecount function on band  --done

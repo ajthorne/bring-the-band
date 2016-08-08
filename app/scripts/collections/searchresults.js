@@ -6,6 +6,10 @@ const SearchResults = Backbone.Collection.extend({
   //data returned from spotify api
   model: SearchResult,
 
+  comparator: function(band) {
+    return band.get('voteCount') * -1
+  },
+
   parse: function(response) {
   //parses through response to store data as specified
     if (response) {

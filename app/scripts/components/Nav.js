@@ -41,8 +41,8 @@ const Nav = React.createClass({
     if (!store.session.get('username')) {
       navView = (
         <nav>
-          {searchView}
           <img className="spotify-logo" src="../../assets/images/Spotify_Icon_CMYK_Green.png"/>
+          {searchView}
           <Link to="/login">Login</Link>
           <Link to="/signup">Sign Up</Link>
         </nav>
@@ -50,8 +50,8 @@ const Nav = React.createClass({
     } else {
       navView = (
         <nav>
-          {searchView}
           <img className="spotify-logo" src="../../assets/images/Spotify_Icon_CMYK_Green.png"/>
+          {searchView}
           <Link onClick={this.logOutHandler} to="#">Logout</Link>
           <Link to="/votes">Votes</Link>
           <Link to="/">Search</Link>

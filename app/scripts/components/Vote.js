@@ -34,17 +34,17 @@ const VotesView = React.createClass({
 render: function () {
   //setting up props to pass down to child
   // console.log(store.bandsCollection);
-  let voteSort = _.sortBy(store.bandsCollection.models, function(band) {
-    return band.get('voteCount')
-  });
+  // let voteSort = _.sortBy(store.bandsCollection.models, function(band) {
+  //   return band.get('voteCount')
+  // });
+  //
+  // let descendingBandOrder = this.state.bands.reverse();
 
-  let descendingBandOrder = voteSort.reverse();
-
-  let bandsVotedFor = descendingBandOrder.map((vote, i, arr) => {
+  let bandsVotedFor = this.state.bandsCollection.map((vote, i, arr) => {
     // console.log(vote);
-    let name = vote.get('name');
-    let imgUrl = vote.get('imgUrl');
-    let voteCount = vote.get('voteCount');
+    let name = vote.name;
+    let imgUrl = vote.imgUrl;
+    let voteCount = vote.voteCount;
 
     return <SingleVote key={i} name={name} imgUrl={imgUrl} voteCount={voteCount}/>
 
