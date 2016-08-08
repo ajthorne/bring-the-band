@@ -29,7 +29,7 @@ submitHandler: function (evt) {
   // console.log(data);
   store.session.signup(data)
   //define login function on session model to store data to server
-  hashHistory.push('/search');
+  hashHistory.push('/');
 },
 
 render: function () {

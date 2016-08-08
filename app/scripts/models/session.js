@@ -19,6 +19,7 @@ const Session = Backbone.Model.extend({
     })
       .then((response) => {
         // console.log(response);
+        
         this.set({
           username: response.username, authtoken: response._kmd.authtoken, id: response._id
         });
@@ -42,7 +43,35 @@ const Session = Backbone.Model.extend({
       .fail((error) => {
         console.error('Your data wasn\'t passed through')
       })
+  },
+  retrieve: function () {
+    $.ajax({
+      url: `https://baas.kinvey.com/user/${settings.appId}/_me`,
+    })
+    .then((response) => {
+      console.log(response);
+    })
+    .fail((error) => {
+      console.log(error);
+    })
+  },
+  logout: function () {
+    $.ajax(null, {
+      url: `https://baas.kinvey.com/user/${settings.appId}/_logout`,
+    })
+    .then((response) => {
+      this.clear();
+      hashHistory.push('/');
+      localStorage.clear();
+      console.log('You are logged out. Goodbye!');
+    })
+    .fail((error) => {
+      console.error('Failed to log out!')
+      console.log(error);
+    })
   }
 });
-
 export default Session;
+
+//to-do
+//build local storage

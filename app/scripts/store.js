@@ -11,9 +11,6 @@ let store = {
   session: new Session(),
   //access using store.session
 
-  searchResult: new SearchResult(),
-  //access using store.searchResult
-
   searchCollection: new SearchResults()
   //access using store.searchCollection
 

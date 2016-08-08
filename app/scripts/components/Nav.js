@@ -14,6 +14,11 @@ const Nav = React.createClass({
   componentDidMount: function() {
     store.session.on('update change', this.updateState);
   },
+
+  logOutHandler: function () {
+    store.session.logout();
+  },
+
   render: function () {
     // console.log(store.session.get('username'));
     //props passed from parent -- location={this.props.location.pathname}
@@ -43,8 +48,9 @@ const Nav = React.createClass({
         <nav>
           {searchView}
           <img className="spotify-logo" src="../../assets/images/Spotify_Icon_CMYK_Green.png"/>
-          <Link to="/logout">Logout</Link>
+          <Link onClick={this.logOutHandler} to="#">Logout</Link>
           <Link to="/votes">Votes</Link>
+          <Link to="/">Search</Link>
         </nav>
       )
     }

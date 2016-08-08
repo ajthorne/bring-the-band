@@ -1,5 +1,5 @@
 import React from 'react';
-import {Router, hashHistory, Route} from 'react-router';
+import {Router, hashHistory, Route, IndexRoute} from 'react-router';
 import ReactDOM from 'react-dom';
 import Nav from './components/Nav';
 import Search from './components/Search';
@@ -31,7 +31,7 @@ const router = (
     <Route path='/' component={App}>
       <Route path="/login" component={Login}/>
       <Route path="/signup" component={SignUp}/>
-      <Route path="/search" component={Search}/>
+      <IndexRoute component={Search}/>
       <Route path="/searchresults" component={ResultsView}/>
       <Route path="/votes" component={VotesView}/>
     </Route>
