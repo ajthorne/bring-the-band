@@ -37,9 +37,9 @@ render: function () {
 
   })
   return (
-      <div>
+      <div className="vote-container">
         <h2>Votes</h2>
-        <ul>
+        <ul className="vote-list-holder">
           {bandsVotedFor}
         </ul>
       </div>
