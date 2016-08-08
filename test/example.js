@@ -8,7 +8,10 @@
 
 //map functions
 // mapping over searchCollection in SearchResult
-// mapping over bandsCollection in Vote
+// mapping over sorted bands in Vote
+
+//sort functions
+//sorting votecount collection
 
 // model functions
 // login, logout, signup on session

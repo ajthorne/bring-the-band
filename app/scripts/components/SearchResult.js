@@ -33,7 +33,7 @@ const ResultsView = React.createClass({
       if (band.get('images')[0]) {
         bandImg = band.get('images')[0].url;
       } else {
-        bandImg = 'http://placekitten.com/g/200/200'
+        bandImg = 'http://placekitten.com/g/800/500'
       }
       // console.log(bandImg);
 

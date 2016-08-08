@@ -8,7 +8,6 @@ import _ from 'underscore';
 
 const VotesView = React.createClass({
   getInitialState: function () {
-    console.log(store.bandsCollection);
     return {
       bandsCollection: store.bandsCollection.toJSON()
         }
@@ -36,13 +35,12 @@ render: function () {
   //setting up props to pass down to child
   // console.log(store.bandsCollection);
   let voteSort = _.sortBy(store.bandsCollection.models, function(band) {
-    // console.log(band);
     return band.get('voteCount')
   });
 
-  // console.log(voteSort.reverse());
+  let descendingBandOrder = voteSort.reverse();
 
-  let bandsVotedFor = store.bandsCollection.map((vote, i, arr) => {
+  let bandsVotedFor = descendingBandOrder.map((vote, i, arr) => {
     // console.log(vote);
     let name = vote.get('name');
     let imgUrl = vote.get('imgUrl');
