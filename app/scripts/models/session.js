@@ -19,10 +19,11 @@ const Session = Backbone.Model.extend({
     })
       .then((response) => {
         // console.log(response);
-
         this.set({
           username: response.username, authtoken: response._kmd.authtoken, id: response._id
         });
+
+        localStorage.setItem("authtoken", response._kmd.authtoken);
       })
       .fail((error) => {
         console.error('Your data wasn\'t passed through')
@@ -49,10 +50,10 @@ const Session = Backbone.Model.extend({
   //     url: `https://baas.kinvey.com/user/${settings.appId}/_me`,
   //   })
   //   .then((response) => {
-  //     console.log(response);
+  //     // console.log(response);
   //   })
   //   .fail((error) => {
-  //     console.log(error);
+  //     // console.log(error);
   //   })
   // },
   logout: function () {

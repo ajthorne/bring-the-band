@@ -26,6 +26,10 @@ $(document).ajaxSend(function(evt, xhrAjax, jqueryAjax) {
 }
 });
 
+// if (localStorage.authtoken) {
+//   store.session.retrieve();
+// }
+
 const router = (
   <Router history={hashHistory}>
     <Route path='/' component={App}>

@@ -8,7 +8,7 @@ const Login = React.createClass({
 },
 
 updateState: function() {
-  this.setState(store.session.toJSON());
+  this.setState({session: store.session.toJSON()});
 },
 
 componentDidMount: function() {

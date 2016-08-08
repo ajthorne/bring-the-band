@@ -4,6 +4,7 @@
 import React from 'react';
 import store from '../store';
 import SingleVote from './SingleVote';
+import _ from 'underscore';
 
 const VotesView = React.createClass({
   getInitialState: function () {
@@ -18,7 +19,7 @@ const VotesView = React.createClass({
       });
     })
   },
-  componentWillUnMount: function () {
+  componentWillUnmount: function () {
     store.bandsCollection.off('update change', () => {
       this.setState({bandsCollection: store.bandsCollection.toJSON()
       });
@@ -32,6 +33,7 @@ render: function () {
     let name = vote.get('name');
     let imgUrl = vote.get('imgUrl');
     let voteCount = vote.get('voteCount');
+    // console.log(_.sortBy(vote, 'voteCount'));
 
     return <SingleVote key={i} name={name} imgUrl={imgUrl} voteCount={voteCount}/>
 

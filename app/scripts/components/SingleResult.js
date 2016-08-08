@@ -28,18 +28,21 @@ const SingleResult = React.createClass({
       },
       {
           success: (band) => {
-              console.log(band)
-              {
-                votes: band.save('votes', band.get('votes').concat(store.session.get('username')));
-                voteCount: band.save('voteCount', band.voteCount())
-               }
-             }
+
+              band.set({
+                votes: band.get('votes').concat(store.session.get('username')),
+              });
+
+              band.save({
+                voteCount: band.voteCount()
+              });
+          }
       })
-      } else {
+    } else {
         let votes = model.get('votes');
         console.log(votes);
-        model.save('votes', votes.concat(store.session.get('username')))
-        model.save('voteCount', model.get('voteCount') + 1)
+        model.set('votes', votes.concat(store.session.get('username')))
+        model.save({voteCount: model.get('voteCount') + 1})
       }
     }
   });
@@ -60,6 +63,3 @@ const SingleResult = React.createClass({
 })
 
 export default SingleResult;
-
-//I need to render this differently for the vote page without the vote input button.
-//maybe pass the location from parent down or something else?

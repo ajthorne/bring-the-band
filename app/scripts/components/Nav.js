@@ -8,11 +8,15 @@ const Nav = React.createClass({
     return {session: store.session.toJSON()}
   },
   updateState: function() {
-    this.setState(store.session.toJSON());
+    this.setState({session: store.session.toJSON()});
   },
 
   componentDidMount: function() {
     store.session.on('update change', this.updateState);
+  },
+
+  componentWillUnmount: function () {
+    store.session.off('update change', this.updateState);
   },
 
   logOutHandler: function () {

@@ -8,19 +8,17 @@ const ResultsView = React.createClass({
       searchCollection: store.searchCollection.toJSON()
     }
   },
-  componentWillMount: function () {
-    store.searchCollection.get();
-    store.searchCollection.on('update change', () => {
+  updateComponent: function() {
       this.setState({searchCollection: store.searchCollection.toJSON()
       });
-    })
+  },
+  componentWillMount: function () {
+    // store.searchCollection.get();
+    store.searchCollection.on('update change', this.updateComponent.bind(this))
   },
 
-  componentWillUnMount: function () {
-    store.searchCollection.off('update change', () => {
-      this.setState({searchCollection: store.searchCollection.toJSON()
-      });
-    })
+  componentWillUnmount: function () {
+    store.searchCollection.off('update change', this.updateComponent.bind(this))
   },
 
   render: function () {
