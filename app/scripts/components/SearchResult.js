@@ -13,7 +13,6 @@ const ResultsView = React.createClass({
       });
   },
   componentWillMount: function () {
-    // store.searchCollection.get();
     store.searchCollection.on('update change', this.updateComponent.bind(this))
   },
 
@@ -24,6 +23,7 @@ const ResultsView = React.createClass({
   render: function () {
     // console.log(store.searchCollection);
     let bands = store.searchCollection.map((band, i, arr) => {
+      // console.log(band);
       let bandName = band.get('name');
       // console.log(bandName);
       let bandId = band.get('id');

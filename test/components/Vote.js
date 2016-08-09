@@ -17,5 +17,7 @@ describe('<VotesView/> component', function () {
   it('should have a comparator to sort votes', () => {
     vote.setState({name: 'hanson', voteCount: 5})
     expect(vote.state('comparator')).to.equal(5)
+    //this is failing because I'm sure I'm doing the syntax incorrectly.
+    //comes up as undefined
   })
 })
