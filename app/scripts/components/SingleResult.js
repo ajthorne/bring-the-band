@@ -7,7 +7,7 @@ import store from '../store';
 const SingleResult = React.createClass({
   voteHandler: function () {
     // store.bandsCollection.voteFor();
-
+    //
     // if (store.session.get('username')) {
     //   console.log('Sorry... you already voted for this band!');
     // } else {

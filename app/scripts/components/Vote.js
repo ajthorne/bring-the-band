@@ -12,16 +12,10 @@ const VotesView = React.createClass({
       bandsCollection: store.bandsCollection.toJSON()
         }
   },
-  componentWillMount: function () {
-    store.bandsCollection.fetch({
-      success: function (response) {
-        // console.log(response.models);
-        // console.log(_.sortBy(response.models, 'name'));
-      }
-    });
+  componentDidMount: function () {
+    store.bandsCollection.fetch();
     store.bandsCollection.on('update change', () => {
       this.setState({bandsCollection: store.bandsCollection.toJSON()});
-      // console.log(_.sortBy(this.state, 'voteCount'));
       });
 
     },

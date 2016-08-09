@@ -1,7 +1,7 @@
 body {
     font-family: helvetica;
-    // background-color: #181818;
-    // background: url('http://1079638729.rsc.cdn77.org/pic/v2/gallery/preview/fon-muzyka-15491.jpg');
+    background: url('http://www.dovecor.co.za/wp-content/uploads/2015/02/Music-notes.jpg');
+    background-size: 825px;
 
 
 .main-content {
@@ -79,6 +79,7 @@ body {
               width: 24%;
               margin-bottom: 7%;
               margin-right: 1%;
+              background-color: white;
               // padding: 0.5%;
               display: block;
               position: relative;
@@ -104,7 +105,7 @@ body {
                   position: absolute;
                   right: 0;
                   border: 0;
-                  // background: #378450;
+                  // background: #1AB26B;
                   padding: 4%;
                   font-size: 0.8rem;
                   // border-radius: 5px;
@@ -132,13 +133,11 @@ body {
   .single-vote-holder {
     width: 25%;
     padding: 1%;
-    // background-color: #1ED760;
+    background-color: white;
     margin-right: 4%;
     margin-bottom: 2%;
     flex-basis: 27%;
-    // border: 2px solid black;
     border-bottom: 1px solid black;
-    // border-radius: 5px;
 
     .single-vote-img {
       width: 100%;
