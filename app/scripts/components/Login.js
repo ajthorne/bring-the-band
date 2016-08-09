@@ -1,6 +1,6 @@
 import React from 'react';
 import store from '../store';
-import { hashHistory } from 'react-router';
+import { hashHistory, Link } from 'react-router';
 
 const Login = React.createClass({
   getInitialState: function() {
@@ -34,10 +34,11 @@ submitHandler: function (evt) {
 
 render: function () {
   return (
-    <form onSubmit={this.submitHandler}>
-      <input type="text" placeholder="Enter a username" ref="username"/>
-      <input type="password" placeholder="Enter a password" ref="password"/>
-      <input type="submit" value="Login"/>
+    <form className="login-container" onSubmit={this.submitHandler}>
+      <input className="login-name" type="text" placeholder="Enter your username" ref="username"/>
+      <input className="login-password" type="password" placeholder="Enter your password" ref="password"/>
+      <input className="login-btn" type="submit" value="Login"/>
+      <p className="login-copy">Not a current user? Sign up <Link to="/signup">here</Link>.</p>
     </form>
   )
 }

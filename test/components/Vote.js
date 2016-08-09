@@ -14,7 +14,7 @@ describe('<VotesView/> component', function () {
   })
 
   // set state to test comparator functionality
-  it('should have a sort votes', () => {
+  it('should have a comparator to sort votes', () => {
     vote.setState({name: 'hanson', voteCount: 5})
     expect(vote.state('comparator')).to.equal(5)
   })

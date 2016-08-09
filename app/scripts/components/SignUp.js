@@ -1,5 +1,6 @@
 import React from 'react';
 import store from '../store';
+import { Link } from 'react-router';
 
 const SignUp = React.createClass({
   getInitialState: function() {
@@ -34,11 +35,11 @@ submitHandler: function (evt) {
 
 render: function () {
   return (
-    <form onSubmit={this.submitHandler}>
-      <input type="text" placeholder="Enter your name" ref="name"/>
-      <input type="text" placeholder="Enter a username" ref="username"/>
-      <input type="password" placeholder="Enter a password" ref="password"/>
-      <input type="submit" value="Sign Up"/>
+    <form className="login-container" onSubmit={this.submitHandler}>
+      <input className="login-name" type="text" placeholder="Enter a username" ref="username"/>
+      <input className="login-password" type="password" placeholder="Enter a password" ref="password"/>
+      <input className="login-btn" type="submit" value="Sign Up"/>
+      <p className="login-copy">Already a current user? Log in <Link to="/login">here</Link>.</p>
     </form>
   )
 }

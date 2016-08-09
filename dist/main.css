@@ -1,7 +1,11 @@
 body {
   font-family: helvetica;
   background: url("http://www.dovecor.co.za/wp-content/uploads/2015/02/Music-notes.jpg");
-  background-size: 825px; }
+  background-size: 825px;
+  background-origin: border-box; }
+  body nav h3 {
+    display: inline-block;
+    text-align: center; }
   body nav .spotify-logo {
     width: 3%; }
   body nav a {
@@ -15,9 +19,8 @@ body {
     vertical-align: super; }
   body .search-box {
     display: block;
-    width: 50%;
-    margin: 0 auto;
-    margin-top: 18%;
+    width: 40%;
+    margin: 10% auto 0;
     overflow: hidden; }
     body .search-box .search-input {
       width: 100%;
@@ -39,7 +42,7 @@ body {
     flex-wrap: wrap;
     list-style-type: none; }
     body .results-holder .results-list .single-result-container {
-      width: 24%;
+      flex-basis: 24%;
       margin-bottom: 7%;
       margin-right: 1%;
       background-color: white;
@@ -99,5 +102,56 @@ body {
       margin-bottom: 0; }
       .vote-list-holder .single-vote-holder .single-vote-count span {
         font-weight: bold; }
+
+.login-container {
+  width: 40%;
+  margin: 8% auto 0; }
+  .login-container .login-name {
+    display: block;
+    width: 100%;
+    font-size: 1rem;
+    box-sizing: border-box;
+    padding: 3%; }
+  .login-container .login-password {
+    display: block;
+    width: 100%;
+    font-size: 1rem;
+    box-sizing: border-box;
+    padding: 3%; }
+  .login-container .login-btn {
+    display: block;
+    width: 100%;
+    border: 0;
+    font-size: 1.3rem;
+    padding: 3%; }
+  .login-container .login-copy {
+    font-size: 0.8rem;
+    margin-top: 0.3rem;
+    text-align: center;
+    background: white; }
+    .login-container .login-copy a {
+      color: black; }
+
+@media (max-width: 480px) {
+  .vote-list-holder .single-vote-holder {
+    margin: 1rem auto 0;
+    flex-basis: 90%; }
+
+  body nav .spotify-logo {
+    width: 5%; }
+  body nav .nav-search {
+    width: auto; }
+  body .results-holder h2 {
+    margin-bottom: 0; }
+  body .results-holder .results-list .single-result-container {
+    flex-basis: 90%;
+    margin: 0 auto;
+    margin-top: 4rem; }
+  body .search-box {
+    width: 70%;
+    margin-top: 15%; }
+
+  .login-container {
+    width: 70%; } }
 
 /*# sourceMappingURL=main.css.map */

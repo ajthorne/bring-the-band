@@ -8,7 +8,6 @@
 
 //map functions
 // mapping over searchCollection in SearchResult
-// mapping over sorted bands in Vote
 
 //sort functions
 //sorting votecount collection --working on

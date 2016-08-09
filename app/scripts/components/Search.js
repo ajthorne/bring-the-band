@@ -29,10 +29,10 @@ const Search = React.createClass({
       searchClass = "search-box"
     }
     return (
-      <form className={searchClass} onSubmit={this.searchHandler}>
-        <input className="search-input" type="text" placeholder="Search" ref="name"/>
-        <input className="search-btn" type="submit" value="Search"/>
-      </form>
+        <form className={searchClass} onSubmit={this.searchHandler}>
+          <input className="search-input" type="text" placeholder="Search" ref="name"/>
+          <input className="search-btn" type="submit" value="Search"/>
+        </form>
     )
   }
 });
