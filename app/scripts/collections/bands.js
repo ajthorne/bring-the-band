@@ -19,12 +19,6 @@ const Bands = Backbone.Collection.extend({
 
     this.fetch({success: () => {
     let model = this.where({id: id})[0];
-    console.log(model.get('votes'));
-
-    // if (model.get('votes').indexOf(store.session.get('username')) === -1) {
-    //   console.log('hi');
-    // }
-
     // console.log(model);
     // console.log(votes);
 
@@ -46,19 +40,17 @@ const Bands = Backbone.Collection.extend({
               });
           }
       })
-    } else {
+    } else if (model.get('votes').indexOf(store.session.get('username')) === -1) {
         let votes = model.get('votes');
-        console.log(votes);
+        // console.log(votes);
         model.set('votes', votes.concat(store.session.get('username')))
         model.save({voteCount: model.get('voteCount') + 1})
+      } else {
+        console.log('You can\'t vote for this again!');
       }
     }
   });
   },
-toggleVote: function () {
-  
-}
-
 });
 
 export default Bands;
