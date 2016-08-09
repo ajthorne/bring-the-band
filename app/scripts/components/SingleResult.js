@@ -6,52 +6,7 @@ import store from '../store';
 
 const SingleResult = React.createClass({
   voteHandler: function () {
-    // store.bandsCollection.voteFor();
-    //
-    // if (store.session.get('username')) {
-    //   console.log('Sorry... you already voted for this band!');
-    // } else {
-
-    console.log('You voted for me. You\'re so sweet!');
-    let id = this.props.id
-    let name = this.props.name
-    let imgUrl = this.props.imgUrl
-    // console.log(this.props);
-
-    store.bandsCollection.fetch({success: () => {
-      // console.log(id);
-      // console.log(store.bandsCollection);
-    let model = store.bandsCollection.where({id: id})[0];
-    // console.log(model);
-    // console.log(votes);
-
-    if (!model) {
-      store.bandsCollection.create({
-        id: id,
-        name: name,
-        imgUrl: imgUrl
-      },
-      {
-          success: (band) => {
-
-              band.set({
-                votes: band.get('votes').concat(store.session.get('username')),
-              });
-
-              band.save({
-                voteCount: band.voteCount()
-              });
-          }
-      })
-    } else {
-        let votes = model.get('votes');
-        console.log(votes);
-        model.set('votes', votes.concat(store.session.get('username')))
-        model.save({voteCount: model.get('voteCount') + 1})
-      }
-    }
-  });
-  // }
+    store.bandsCollection.voteFor(this.props);
   },
   render: function () {
     // let voteView;

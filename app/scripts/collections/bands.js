@@ -12,52 +12,53 @@ const Bands = Backbone.Collection.extend({
     return band.get('voteCount') * -1
   },
 
-  // voteFor: function () {
-  //   // if (store.session.get('username')) {
-  //   //   console.log('Sorry... you already voted for this band!');
-  //   // } else {
-  //
-  //   console.log('You voted for me. You\'re so sweet!');
-  //   let id = this.props.id
-  //   let name = this.props.name
-  //   let imgUrl = this.props.imgUrl
-  //   // console.log(this.props);
-  //
-  //   this.fetch({success: () => {
-  //     // console.log(id);
-  //     // console.log(store.bandsCollection);
-  //   let model = this.where({id: id})[0];
-  //   // console.log(model);
-  //   // console.log(votes);
-  //
-  //   if (!model) {
-  //     this.create({
-  //       id: id,
-  //       name: name,
-  //       imgUrl: imgUrl
-  //     },
-  //     {
-  //         success: (band) => {
-  //
-  //             band.set({
-  //               votes: band.get('votes').concat(store.session.get('username')),
-  //             });
-  //
-  //             band.save({
-  //               voteCount: band.voteCount()
-  //             });
-  //         }
-  //     })
-  //   } else {
-  //       let votes = model.get('votes');
-  //       console.log(votes);
-  //       model.set('votes', votes.concat(store.session.get('username')))
-  //       model.save({voteCount: model.get('voteCount') + 1})
-  //     }
-  //   }
-  // });
-  // }
-  // }
-})
+  voteFor: function (props) {
+    let id = props.id
+    let name = props.name
+    let imgUrl = props.imgUrl
+
+    this.fetch({success: () => {
+    let model = this.where({id: id})[0];
+    console.log(model.get('votes'));
+
+    // if (model.get('votes').indexOf(store.session.get('username')) === -1) {
+    //   console.log('hi');
+    // }
+
+    // console.log(model);
+    // console.log(votes);
+
+    if (!model) {
+      this.create({
+        id: id,
+        name: name,
+        imgUrl: imgUrl
+      },
+      {
+          success: (band) => {
+
+              band.set({
+                votes: band.get('votes').concat(store.session.get('username')),
+              });
+
+              band.save({
+                voteCount: band.voteCount()
+              });
+          }
+      })
+    } else {
+        let votes = model.get('votes');
+        console.log(votes);
+        model.set('votes', votes.concat(store.session.get('username')))
+        model.save({voteCount: model.get('voteCount') + 1})
+      }
+    }
+  });
+  },
+toggleVote: function () {
+  
+}
+
+});
 
 export default Bands;
