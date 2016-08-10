@@ -1,28 +1,25 @@
-# Basic Build with NPM scripts
-This is a project scaffolding and build tool for the TIY Austin Front-End Engineering course. Feel free to use and enjoy! Feedback and PRs welcome!
+#Bring the Band!
+##An app that allows you to search and vote for your favorite band using Spotify API
 
-## Features
-- A bare bones scaffolding for an SPA, without any libraries built in
-- A static server for serving up your dev environment via http
-- `app` directory for development, preloaded with an `index.html`, `scripts/entry.js`, `scss/main.scss` and `assets/`
-- `dist` directory for deployable code
-- es2015 and babel, including module syntax
-- mocha test runner, for support testing modules and react components with es2015 and jsx syntax using enzyme and the chai assertion library
-- sass (.scss)
+###Planning Process --
+1. Sketch wireframes noting all endpoints and user events
+2. Data modeling
+  - Session model, Band model and Bands collection created with Kinvey
+  - Search model and collection created by accessing Spotify database
+3. Break down wireframes into functional user components
+4. Identify any special features and whether it's necessary to manipulate/modify data and components
 
-## Installation
-- Clone this repo (or fork then clone, if you prefer)
-- Remove the git history by running `rm -rf .git`
-- Set up a new git repo
-- Run `npm install`
-- if you get permission errors you may need to run `sudo npm install` to install a couple global dependencies
+###Building Process --
+1. Constructed router
+2. Built search component to fetch data from Spotify. This included a single result. It was more helpful for me to fetch the data first so that I had real data to work with rather than writing out code without being able to see it's functionality in browser.
+3. User account functionality
+4. Voting system
+5. Testing --Ideally, I would like to do this before building out the code but being a novice, it's helpful to me to see that it works and build tests around it. It also helped me clean up my code.
+6. Stylin'
 
-## Use
-- `npm install` will scaffold your project AND start the dev server
-- `npm start` will start the dev server and watch for changes
-- `npm test` will run any test files included in the test folder
-- `npm run deploy` will push the content of `dist/` to gh-pages
-- When the server is running, your site will be live on [http://localhost:8080/](http://localhost:8080/)
+###Challenges --
+1. Writing tests and writing testable code is a new concept so it was difficult for me to execute this.
+2. Lots of trials and tribulations with getting the voting system set up but overall, I understood the process.
 
-## Dependencies
-- `sass` [install guide here](http://sass-lang.com/install)
+###Improvements --
+1. Update features with more user specificity
